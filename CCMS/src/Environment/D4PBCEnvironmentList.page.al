@@ -231,10 +231,19 @@ page 62003 "D4P BC Environment List"
                 trigger OnAction()
                 var
                     BCTenant: Record "D4P BC Tenant";
+                    BCEnvironment: Record "D4P BC Environment";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
-                    BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
-                    EnvironmentManagement.GetEnvironments(BCTenant);
+                    //OTEBC-51 11.06.26 JK START
+                    //BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
+                    //EnvironmentManagement.GetEnvironments(BCTenant);
+                    BCEnvironment.Reset();
+                    if BCEnvironment.FindSet() then
+                        repeat
+                            BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+                            EnvironmentManagement.GetEnvironments(BCTenant);
+                        until BCEnvironment.Next() = 0;
+                    //OTEBC-51 11.06.26 JK STOP
                 end;
             }
             action(GetEnvironmentUpdateInfo)
