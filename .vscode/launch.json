@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "OTE DEV Sandbox",
+      "type": "al",
+      "request": "launch",
+      "environmentType": "Sandbox",
+      "environmentName": "development",
+      "startupObjectId": 22,
+      "breakOnError": "All",
+      "breakOnRecordWrite": "None",
+      "launchBrowser": true,
+      "enableSqlInformationDebugger": true,
+      "enableLongRunningSqlStatements": true,
+      "longRunningSqlStatementsThreshold": 500,
+      "numberOfSqlStatements": 10,
+      "tenant": "67d9bb07-2f0c-4b83-9e83-21780441c21f"
+    },
+    {
+      "name": "OTE TEST Sandbox",
+      "type": "al",
+      "request": "launch",
+      "environmentType": "Sandbox",
+      "environmentName": "Test",
+      "startupObjectId": 22,
+      "breakOnError": "All",
+      "breakOnRecordWrite": "None",
+      "launchBrowser": true,
+      "enableSqlInformationDebugger": true,
+      "enableLongRunningSqlStatements": true,
+      "longRunningSqlStatementsThreshold": 500,
+      "numberOfSqlStatements": 10,
+      "tenant": "67d9bb07-2f0c-4b83-9e83-21780441c21f"
+    }
+  ]
+}
